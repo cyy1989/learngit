@@ -39,7 +39,7 @@ class Movies(models.Model):
     title=models.CharField(u'标题',max_length=20)
     image=models.ImageField(u'封面',upload_to='static/images/')
     director=models.CharField(u'导演',max_length=20)
-    actors=models.ManyToManyField(Actors,related_name='movies_actors')
+    movie_actors=models.ManyToManyField(Actors,related_name='movies_actors')
     pub_date=models.DateField(u'上映时间')
     country=models.ManyToManyField(Countrys,related_name='movies_country')
     hits=models.IntegerField(u'点击数',default=0)

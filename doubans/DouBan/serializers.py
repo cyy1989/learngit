@@ -8,7 +8,7 @@ from DouBan.models import Movies, Actors, Comments, Countrys, Styles
 class MoviesSerializers(serializers.ModelSerializer):
     class Meta:
         model=Movies
-        fields=('title','image','director','actors','pub_date','country','hits','style','movie_comment')
+        fields=('title','image','director','movie_actors','pub_date','country','hits','style','movie_comment')
 
 
 
@@ -44,8 +44,8 @@ class StylesSerializers(serializers.ModelSerializer):
 #     class Meta:
 #         model = 'auth.user'
 #         fields = ('username','password','email')
-# class UserSerializers(serializers.ModelSerializer):
-#     class Meta:
-#         model=User
-#         fields = '__all__'
+class UserSerializers(serializers.ModelSerializer):
+    class Meta:
+        model=User
+        fields = '__all__'
         #depth = 1

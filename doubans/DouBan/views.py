@@ -1,11 +1,11 @@
-from django.contrib import auth
+
 from django.contrib.auth.models import User
 
 from django.shortcuts import render
 
 # Create your views here.
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import viewsets
+from rest_framework import viewsets,filters
 from rest_framework.decorators import detail_route, api_view
 from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import IsAuthenticated
@@ -26,18 +26,13 @@ class MoviesViewSet(viewsets.ModelViewSet):
     queryset=Movies.objects.all()
     serializer_class = MoviesSerializers
     # parser_classes = (JSONParser,)
-    filter_backends = (DjangoFilterBackend,)
-    filter_fields = ('actors', 'style','director')
+    filter_backends = (DjangoFilterBackend,filters.SearchFilter)
+    search_fields=['director','hits','title','style__style','movie_actors__actors']#设置搜索栏范围，如果有外键，要注明外键的哪个字段，双下划线
+    filter_fields = ('movie_actors', 'style','director','hits',)
     # permission_classes = (IsAdminOrReadOnly,)
 
 
-    # def add_hits(self,request,args, **kwargs):
-    #     obj = self.get_object()
-    #     obj.hits += 1
-    #     serializer = self.get_serializer(obj, data=request.data)
-    #     print(serializer.data)
-    #     return Response(serializer.data)
-    #@api_view(http_method_names=['GET'])
+
     def retrieve(self, request,*args, **kwargs):
         instance = self.get_object()
         instance.hits += 2
@@ -90,9 +85,9 @@ class CommentsViewSet(viewsets.ModelViewSet):
     filter_backends = (DjangoFilterBackend,)
     filter_fields = ('comment_movie',)
     # permission_classes = (IsOwnerOrReadOnly,)
-# class UsersViewSet(viewsets.ModelViewSet):
-#     queryset=User.objects.all()
-#     serializer_class = UserSerializers
+class UsersViewSet(viewsets.ModelViewSet):
+    queryset=User.objects.all()
+    serializer_class = UserSerializers
 
 # class authuserViewSet(viewsets.ModelViewSet):
 #     queryset=auth_user.objects.all()
