@@ -36,17 +36,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/doubans/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="684">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DouBan/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
@@ -73,11 +73,11 @@
         <option value="$PROJECT_DIR$/DouBan/permissions.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/345581a6-283d-4775-b33c-51e25c417e84/console.sql" />
         <option value="$PROJECT_DIR$/DouBan/Error.py" />
-        <option value="$PROJECT_DIR$/doubans/urls.py" />
         <option value="$PROJECT_DIR$/doubans/settings.py" />
         <option value="$PROJECT_DIR$/DouBan/models.py" />
         <option value="$PROJECT_DIR$/DouBan/serializers.py" />
         <option value="$PROJECT_DIR$/DouBan/views.py" />
+        <option value="$PROJECT_DIR$/doubans/urls.py" />
       </list>
     </option>
   </component>
@@ -398,8 +398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/doubans/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="684">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>

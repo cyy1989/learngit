@@ -33,7 +33,7 @@ router.register(r'style',views.StylesViewSet,'style')
 router.register(r'comments',views.CommentsViewSet,'comments')
 # router.register(r'users',views.UsersViewSet,'users')
 urlpatterns = [
-    path(r'admin/',admin.site.urls),
+    path(r'admin/',admin.site.urls),#进入系统管理员路径
     url(r'^', include(router.urls)),
     # url(r'^api-token-auth/', obtain_jwt_token),
     # url(r'^api-token-refresh/', refresh_jwt_token),
