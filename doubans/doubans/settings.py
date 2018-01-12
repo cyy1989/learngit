@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
+import datetime
 import os
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')uivtn!+2mze@jt)d&#w+dpq0esh%tcobknivxk73ap%*#6tbq'
+SECRET_KEY = 'd)s8f6t=c%=li)f4&1w53id68=!j(e9w-a%$ikq*+x04*60=6s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,8 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'duban',
+    'DouBan',
     'rest_framework',
+    'django_filters',
+    'rest_framework.permissions',
+    # 'rest_framework.authentication',
+    # 'rest_framework.authtoken',
+    # 'rest_framework_jwt'
 ]
 
 MIDDLEWARE = [
@@ -64,7 +70,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
             ],
         },
     },
@@ -79,7 +84,7 @@ WSGI_APPLICATION = 'doubans.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.mysqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.cyysqlite3'),
     }
 }
 
@@ -102,7 +107,27 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+    # 'DEFAULT_PERMISSION_CLASSES':('rest_framework.permissions.IsAuthenticatedOrReadOnly',),
+}
 
+# JWT_AUTH = {
+#     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=600),
+#     'JWT_REFRESH_EXPIRATION_DELTA':datetime.timedelta(days=7),
+#     'JWT_ALLOW_REFRESH':True,#则可以“刷新” 未到期的令牌以获得具有更新的到期时间的全新令牌
+#     'JWT_VERIFY': True,
+#     'JWT_AUTH_HEADER_PREFIX': 'JWT',
+# }
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
